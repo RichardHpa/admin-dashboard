@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::view('dashboard', 'admin/dashboard')->middleware(['web', 'auth']);
+Route::get('dashboard', 'AdminController@index')->middleware(['web', 'auth']);
+// Route::get('/home', 'HomeController@index')->name('home');
