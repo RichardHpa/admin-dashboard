@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Users.scss';
+import Button from '../Button/Button';
 
 class Users extends Component {
     constructor(props){
@@ -18,7 +19,6 @@ class Users extends Component {
             })
             .then(users => {
                 this.setState({ users });
-                console.log(users);
             });
     }
 
@@ -29,6 +29,11 @@ class Users extends Component {
                     <td>{ user.id }</td>
                     <td>{ user.name }</td>
                     <td>{ user.email }</td>
+                    <td></td>
+                    <td>
+                        <Button text="Edit User" classes="btn-sm btn-info mr-2" to="https://laravel.com/docs/6.x"/>
+                        <Button text="Delete User" classes="btn-sm btn-danger"/>
+                    </td>
                 </tr>
             );
         })
@@ -36,21 +41,25 @@ class Users extends Component {
 
     render(){
         return(
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+            <div>
+            <Button text="Add New User" to="./users/create"/>
+                <table className="table mt-2">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    { this.renderUsers() }
-                </tbody>
-            </table>
+                    <tbody>
+                        { this.renderUsers() }
+                    </tbody>
+                </table>
+            </div>
+
         )
     }
 }

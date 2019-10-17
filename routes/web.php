@@ -20,4 +20,6 @@ Auth::routes(['verify' => true]);
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->middleware(['web', 'auth']);
     Route::get('/{sub}', 'AdminController@index')->middleware(['web', 'auth']);
+    Route::get('/{sub}/{action}', 'AdminController@index')->middleware(['web', 'auth']);
+
 });

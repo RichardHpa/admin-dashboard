@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Users from './Users/Users';
+import CreateUser from './Users/Create';
 
 const pages = [
     { 'id': 1, 'name': 'Dashboard', 'url': '/admin','icon': 'chart-pie' },
@@ -47,7 +48,7 @@ class Dashboard extends Component {
                         </div>
                         <Switch>
                             <Route exact path='/admin/users' component={Users} />
-
+                            <Route exact path='/admin/users/create' component={CreateUser} />
                         </Switch>
                         </main>
                     </div>
