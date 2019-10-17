@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-// Route::view('dashboard', 'admin/dashboard')->middleware(['web', 'auth']);
-Route::get('dashboard', 'AdminController@index')->middleware(['web', 'auth']);
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'AdminController@index')->middleware(['web', 'auth']);
+    Route::get('/{sub}', 'AdminController@index')->middleware(['web', 'auth']);
+});
