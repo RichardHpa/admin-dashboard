@@ -76,14 +76,14 @@ class Form extends Component {
         const { valid } = this.state;
         return(
             <form action={this.props.action} method={this.props.method} autoComplete="off" onSubmit={this.onSubmit}>
-            {valid? '':
-            <div className="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Error!</strong> One of your input fields is invalid
-            <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.closeError}>
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-        }
+                {valid? '':
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> One of your input fields is invalid
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.closeError}>
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            }
         { this.renderChildren() }
         <button type="submit" className="btn btn-primary">{this.props.btnText? this.props.btnText: 'Submit'}</button>
         </form>
